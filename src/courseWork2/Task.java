@@ -2,6 +2,7 @@ package courseWork2;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public abstract class Task {
@@ -13,12 +14,12 @@ public abstract class Task {
     private String description;
 
 
-    public Task(String title, Type type, String description) {
+    public Task(String title, Type type, String description, LocalDateTime dateTime) {
         this.id = ++idGeneration;
         this.title = title;
         this.type = type;
         this.description = description;
-        this.dateTime = LocalDateTime.now();
+        this.dateTime = installDateTime(dateTime);
     }
 
     public String getTitle() {
@@ -56,7 +57,6 @@ public abstract class Task {
      */
     public abstract boolean appearsIn(LocalDateTime dateTime);
 
-
     /*
     * Метод для получения следующей даты выподнения задачи
      */
@@ -70,6 +70,11 @@ public abstract class Task {
                 "\n   Дата и время создания задачи: " + dateTime;
     }
 
+    public LocalDateTime installDateTime(LocalDateTime localDateTime) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("[yyyy MM dd] [HH:mm:ss]");
+        String text = localDateTime.format(formatter);
+        return LocalDateTime.parse(text, formatter);
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

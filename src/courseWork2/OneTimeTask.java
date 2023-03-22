@@ -8,8 +8,8 @@ public class OneTimeTask extends Task{
 
     private LocalDate timeOfTask;
 
-    public OneTimeTask(String title, Type type, String description, LocalDate timeOfTask) {
-        super(title, type, description);
+    public OneTimeTask(String title, Type type, String description, LocalDateTime dateTime, LocalDate timeOfTask) {
+        super(title, type, description, dateTime);
         this.timeOfTask = timeOfTask;
     }
 
