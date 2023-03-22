@@ -31,7 +31,7 @@ public class Main {
                     break;
                 case "3":
                     // удалить задачу
-                    System.out.println("Введите идентификационный номер задачи, которую нужно удалить: ");
+                    System.out.println("Введите id номер задачи, которую нужно удалить: ");
                     int taskId = scanner.nextInt();
                     try {
                         taskService.removeTask(taskId);
@@ -42,6 +42,11 @@ public class Main {
                     getMenu();
                     scanner.nextLine();
                     break;
+                case "4":
+                    System.exit(0);
+                default:
+                    System.out.println("Некорректный ввод! Введите значение, указанное в меню (цифры от 1 до 4)");
+                    getMenu();
             }
         }
         scanner.close();
@@ -134,7 +139,7 @@ public class Main {
                 "\n 1 - добавить новую задачу " +
                 "\n 2 - вывести список всех задач" +
                 "\n 3 - удалить задачу " +
-                "\n 5 - выйти \n");
+                "\n 4 - выйти \n");
     }
 
     // Блок проверки вводимых значений

@@ -64,7 +64,8 @@ public abstract class Task {
 
     @Override
     public String toString() {
-        return "Название задачи: " + title +
+        return "id: " + id +
+                "\n   Название задачи: " + title +
                 "\n   Описание задачи: " + description +
                 "\n   Тип задачи: " + type.getTaskType() +
                 "\n   Дата и время создания задачи: " + dateTime;
